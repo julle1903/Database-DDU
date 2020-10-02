@@ -20,7 +20,9 @@
                         echo '<form action="core/logout.core.php" method="post">
                             <h2>Log ud</h2>
                             <button type="submit" name="submit/logout">Log ud</button>
-                            </form>';
+                            </form> 
+                            <button onClick="">Lån bog</button>
+                            <button onClick="">Aflever bog</button>';
                     } else {
                         echo '<form action="core/login.core.php" method="post">
                             <h2>Log ind</h2>
@@ -43,6 +45,14 @@
                 ?>
             </section>
         </div>
+        <script>
+            function getBooksPage() {
+                <?php 
+                    header("Location: ../getBooks.php");
+                ?>
+
+            }
+        </script>
     </main>
 
 <?php 

@@ -1,11 +1,13 @@
 <?php
 include 'Julius/core/dbconn.core.php';
 
-$sqlUsers = "CREATE TABLE 'users' (
-    'id' int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    'name' varchar(45) NOT NULL,
-    'password' varchar(40) NOT NULL,
-    'class' varchar(20) NOT NULL,
+$sqlUsers = "CREATE TABLE users (
+    id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    firstname varchar(45) NOT NULL,
+    lastname varchar(45) NOT NULL,
+    type varchar(20) NOT NULL,
+    password varchar(255) NOT NULL,
+    class varchar(20) NOT NULL,
     PRIMARY KEY (id) 
 )";
 
@@ -15,10 +17,10 @@ if (mysqli_query($conn, $sqlUsers)) {
     echo "Error creating table: " . mysqli_error($conn);
 }
 
-$sqlBooks = "CREATE TABLE 'books' (
-    'id' int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    'name' varchar(45) NOT NULL,
-    'genre' varchar(45) NOT NULL,
+$sqlBooks = "CREATE TABLE books (
+    id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    name varchar(45) NOT NULL,
+    author varchar(45) NOT NULL,
     PRIMARY KEY (id) 
 )";
 
@@ -28,10 +30,10 @@ if (mysqli_query($conn, $sqlBooks)) {
     echo "Error creating table: " . mysqli_error($conn);
 }
 
-$sqlTrades = "CREATE TABLE 'trades'(
-    'id' int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    'idUser' int(10) UNSIGNED NOT NULL,
-    'idBook' int(10) UNSIGNED NOT NULL,
+$sqlTrades = "CREATE TABLE trades(
+    id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    idUser int(10) UNSIGNED NOT NULL,
+    idBook int(10) UNSIGNED NOT NULL,
     PRIMARY KEY (id) 
 )";
 

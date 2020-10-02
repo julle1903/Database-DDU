@@ -1,6 +1,6 @@
 <footer>
     <div>
-        <h3>© Solius</h3>
+        <h3>© Good Try my man</h3>
     </div>
 </footer>
 </body>
