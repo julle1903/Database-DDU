@@ -1,6 +1,7 @@
 <footer>
-    <div>
-        <h3>© Good Try my man</h3>
+<link rel="stylesheet" href="css/index.css" type="text/css"/>
+    <div class = "foot">
+        <h3>© HTX DB System</h3>
     </div>
 </footer>
 </body>

@@ -2,7 +2,7 @@
 require "../../core/dbconn.core.php";
 
 
-if(isset($_POST["import"])) {
+if(isset($_POST["importUsers"])) {
     $filename = $_FILES["file"]["tmp_name"];
 
     if($_FILES["file"]["size"] > 0) {
@@ -18,9 +18,36 @@ if(isset($_POST["import"])) {
             $result = mysqli_query($conn, $sql);
 
             if(!empty($result)) {
-                echo "done";
+                echo "Success ";
             } else {
-                echo "ik done";
+                echo "Fejl ";
+            }
+        }
+    }
+}
+
+?>
+
+<?php
+
+if(isset($_POST["importBooks"])) {
+    $filename = $_FILES["file"]["tmp_name"];
+
+    if($_FILES["file"]["size"] > 0) {
+        $file = fopen($filename, "r");
+
+        while(($column = fgetcsv($file, 10000, ",")) !== FALSE) {
+
+
+            $sql = "Insert into books (title,author) 
+            values ('" . $column[0] . "', '" . $column[1] ."')";
+
+            $result = mysqli_query($conn, $sql);
+
+            if(!empty($result)) {
+                echo "Success ";
+            } else {
+                echo "Fejl ";
             }
         }
     }
@@ -29,12 +56,21 @@ if(isset($_POST["import"])) {
 
 ?>
 
-<form action="" method="post" name="uploadCsv" enctype="multipart/form-data">
 
-<div>
-    <h1>Vælg CSV fil</h1>
-    <input type="file" name="file" accept=".csv">
-    <button type="submit" name="import">Import</button>
-</div>
 
-</form>
+
+    <form action="" method="post" name="uploadCsv" enctype="multipart/form-data">
+        <div>
+            <h1>Vælg CSV fil med brugere</h1>
+            <input type="file" name="file" accept=".csv">
+            <button type="submit" name="importUsers">Import brugere</button>
+        </div>
+    </form>
+
+    <form action="" method="post" name="uploadCsv" enctype="multipart/form-data">
+        <div>
+            <h1>Vælg CSV fil med bøger</h1>
+            <input type="file" name="file" accept=".csv">
+            <button type="submit" name="importBooks">Import books</button>
+        </div>
+    </form>

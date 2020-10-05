@@ -19,8 +19,8 @@ if (mysqli_query($conn, $sqlUsers)) {
 
 $sqlBooks = "CREATE TABLE books (
     id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    name varchar(45) NOT NULL,
-    author varchar(45) NOT NULL,
+    title varchar(100) NOT NULL,
+    author varchar(100) NOT NULL,
     PRIMARY KEY (id) 
 )";
 
