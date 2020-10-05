@@ -36,13 +36,17 @@
                                
                             $sqltrades = "SELECT * FROM trades WHERE idUser=$userId";
                             $result = mysqli_query($conn, $sqltrades) or die(mysqli_error($conn));
+                            var_dump($result);
 
                             while($rowTrades = mysqli_fetch_array($result)){
+                                var_dump($rowTrades);
                                 extract($rowTrades);
                                     $sqlBooks = "SELECT * FROM books WHERE id=$idBook";
                                     $resultBooks = mysqli_query($conn, $sqlBooks) or die(mysqli_error($conn));
                                     $rowBooks = mysqli_fetch_array($resultBooks);
+                                    var_dump($rowBooks);
                                     extract($rowBooks);
+    
                                     ?>
                                         <option name="bookId" value=" <?php echo $id;?> "> <?php echo "$title, $author";?> </option>
                                     <?php

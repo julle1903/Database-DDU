@@ -23,7 +23,7 @@
             <section>
                 <div>
                     <form action="" method="post">
-                        <label for="books">Choose a book:</label>
+                        <label for="books">Vælg en bog:</label>
                         <select name="books" id="books" required>
                         <?php
 

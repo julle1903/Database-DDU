@@ -2,6 +2,8 @@
     require "header.php";
     require "core/dbconn.core.php";
 
+    $once=false;
+
 
     if(isset($_POST["deleteDB"])) {
 
@@ -49,6 +51,10 @@ if(isset($_POST["importUsers"])) {
             $result = mysqli_query($conn, $sql);
 
             if(!empty($result)) {
+                if (!$once) {
+                    echo "Det lykkedes!";
+                    $once = true;
+                }
             } else {
                 echo "Fejl ";
             }
@@ -75,6 +81,10 @@ if(isset($_POST["importBooks"])) {
             $result = mysqli_query($conn, $sql);
 
             if(!empty($result)) {
+                if (!$once) {
+                    echo "Det lykkedes!";
+                    $once = true;
+                }
             } else {
                 echo "Fejl ";
             }
@@ -102,6 +112,7 @@ if(isset($_POST["importBooks"])) {
 <form action="" method="post" name="uploadCsv" enctype="multipart/form-data">
 <div>
     <h1>Vælg CSV fil med brugere</h1>
+    <p>Det kan godt tage lang tid at importere brugere...</p>
     <input type="file" name="file" accept=".csv">
     <button type="submit" name="importUsers">Import brugere</button>
 </div>
